@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yogod Marketing Agency | 🚀 Ambitious & Ready to Grow</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23FF6B35'>🚀</text></svg>">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-red: #FF3366;
+            --primary-orange: #FF6B35;
+            --primary-yellow: #FFD93D;
+            --primary-green: #4ECDC4;
+            --primary-blue: #4361EE;
+            --primary-purple: #9D4EDD;
+            --primary-pink: #FF8FB1;
+            --primary-teal: #2EC4B6;
+            
+            --gradient-sunset: linear-gradient(135deg, #FF3366, #FF6B35, #FFD93D);
+            --gradient-ocean: linear-gradient(135deg, #4361EE, #4ECDC4, #2EC4B6);
+            --gradient-royal: linear-gradient(135deg, #9D4EDD, #B8B5FF, #FF8FB1);
+            --gradient-rainbow: linear-gradient(90deg, #FF3366, #FF6B35, #FFD93D, #4ECDC4, #4361EE, #9D4EDD);
+            
+            --dark: #2D2D44;
+            --light: #F7F7FF;
+            --gray: #E5E5E5;
+            
+            --shadow-sm: 0 5px 15px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 25px rgba(0,0,0,0.1);
+            --shadow-lg: 0 15px 35px rgba(0,0,0,0.15);
+            --shadow-color: 0 10px 25px rgba(255,107,53,0.2);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background: var(--light);
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: linear-gradient(180deg, #f1f1f1, #e0e0e0);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-rainbow);
+            border-radius: 6px;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        .animate-pulse { animation: pulse 2s ease-in-out infinite; }
+        .animate-spin-slow { animation: spin 8s linear infinite; }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            background: var(--gradient-rainbow);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        .section-title::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-rainbow);
+            border-radius: 2px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .logo-text h1 {
+            font-size: 1.8rem;
+            background: var(--gradient-rainbow);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+        .logo-text p {
+            font-size: 0.8rem;
+            background: var(--gradient-ocean);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 3px;
+            font-weight: 600;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: 0.3s;
+            position: relative;
+        }
+        .nav-menu a::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gradient-rainbow);
+            transition: width 0.3s;
+        }
+        .nav-menu a:hover::before {
+            width: 100%;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            background: var(--gradient-rainbow);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            padding: 100px 5% 50px;
+            background: linear-gradient(135deg, #fff5f0, #f0f7ff);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-content {
+            animation: slideInLeft 1s ease-out;
+        }
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 2rem;
+            background: var(--gradient-rainbow);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+        .hero-content h2 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        .hero-highlight {
+            background: var(--gradient-rainbow);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        .hero-subhead {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        /* CTA Buttons */
+        .cta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .cta-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            padding: 1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            color: white;
+        }
+        .cta-btn i {
+            font-size: 1.2rem;
+        }
+        .cta-whatsapp { background: #25D366; }
+        .cta-whatsapp:hover { background: #128C7E; transform: translateY(-3px); }
+        .cta-phone { background: #4361EE; }
+        .cta-phone:hover { background: #3046BF; transform: translateY(-3px); }
+        .cta-telegram { background: #0088cc; }
+        .cta-telegram:hover { background: #006699; transform: translateY(-3px); }
+        .cta-gmail { background: #EA4335; }
+        .cta-gmail:hover { background: #D32F2F; transform: translateY(-3px); }
+
+        .hero-image {
+            animation: slideInRight 1s ease-out;
+        }
+        .hero-image-placeholder {
+            width: 100%;
+            height: 500px;
+            background: var(--gradient-royal);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            color: white;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 4rem 5%;
+            background: var(--gradient-rainbow);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+            color: white;
+        }
+        .stat-item {
+            padding: 2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+        }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 30px;
+            text-align: center;
+            transition: 0.3s;
+            box-shadow: var(--shadow-md);
+        }
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-lg);
+        }
+        .service-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
+            background: var(--gradient-rainbow);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 5%;
+            background: white;
+        }
+        .founder-card {
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            border-radius: 40px;
+            padding: 3rem;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 3rem;
+        }
+        .founder-header {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .founder-avatar {
+            width: 150px;
+            height: 150px;
+            background: var(--gradient-rainbow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .team-card {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: 0.3s;
+        }
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        .team-image {
+            height: 250px;
+            background: var(--gradient-rainbow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+        .team-info {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* Portfolio Gallery */
+        .portfolio {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+        }
+        .portfolio .section-title {
+            color: white;
+            -webkit-text-fill-color: white;
+        }
+        .gallery-container {
+            position: relative;
+            max-width: 1400px;
+            margin: 0 auto;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        .gallery-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            gap: 1.5rem;
+        }
+        .gallery-item {
+            min-width: 300px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+        }
+        .gallery-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+        .gallery-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,51,102,0.9), rgba(157,78,221,0.9));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: 0.3s;
+            color: white;
+            text-align: center;
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        .gallery-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            z-index: 10;
+            color: var(--primary-red);
+            transition: 0.3s;
+        }
+        .gallery-btn:hover {
+            background: var(--gradient-rainbow);
+            color: white;
+        }
+        .gallery-btn.prev { left: 10px; }
+        .gallery-btn.next { right: 10px; }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        .contact .section-title {
+            color: white;
+            -webkit-text-fill-color: white;
+        }
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        .contact-info-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 30px;
+        }
+        .contact-info-card h3 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .contact-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateX(10px);
+        }
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 30px;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #eee;
+            border-radius: 15px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        .submit-btn {
+            background: var(--gradient-rainbow);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 5% 2rem;
+        }
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: 0.3s;
+                z-index: 999;
+            }
+            .nav-menu.active {
+                left: 0;
+            }
+            .hero-container {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h2 {
+                font-size: 2.5rem;
+            }
+            .cta-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            .founder-header {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation with Logo -->
+    <nav class="navbar">
+        <div class="logo">
+            <div class="logo-img">
+                <!-- YOUR LOGO IMAGE -->
+                <img src="images/logo.png" alt="Yogod Marketing Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/60x60/FF3366/ffffff?text=YM'">
+            </div>
+            <div class="logo-text">
+                <h1>Yogod</h1>
+                <p>MARKETING AGENCY</p>
+            </div>
+        </div>
+        <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-badge animate-pulse">
+                    <i class="fas fa-bolt"></i> NEW AGENCY • BIG AMBITIONS
+                </span>
+                <h2>
+                    Ready to 
+                    <span class="hero-highlight">Dominate</span> 
+                    Social Media?
+                </h2>
+                <p class="hero-subhead">
+                    We're Yogod Marketing Agency – a fresh, ambitious team from Bahir Dar with BIG dreams 
+                    and the skills to match. Currently serving 5 amazing clients and hungry for more!
+                </p>
+                
+                <!-- Your CTA Links -->
+                <div class="cta-grid">
+                    <a href="https://wa.me/251967523107" class="cta-btn cta-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="tel:+251967523107" class="cta-btn cta-phone">
+                        <i class="fas fa-phone"></i> Call Us
+                    </a>
+                    <a href="https://t.me/Yogodmarketingagency" class="cta-btn cta-telegram" target="_blank">
+                        <i class="fab fa-telegram"></i> Telegram
+                    </a>
+                    <a href="mailto:Yogodmarketingagency@gmail.com" class="cta-btn cta-gmail">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <div class="hero-image-placeholder">
+                    <div>
+                        <i class="fas fa-rocket" style="font-size: 5rem; margin-bottom: 1rem;"></i>
+                        <p>Your Hero Image Here</p>
+                        <small>(Replace with your image)</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stat-item">
+            <div class="stat-number">5</div>
+            <div class="stat-label">Active Clients</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Completed Projects</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">∞</div>
+            <div class="stat-label">Ambition Level</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">4</div>
+            <div class="stat-label">Team Members</div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Social Media Management</h3>
+                <p>Full platform management across Instagram, TikTok, Facebook.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-ad"></i></div>
+                <h3>Ad Management</h3>
+                <p>Strategic ad campaigns on all platforms.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                <h3>Logo & Brand Design</h3>
+                <p>Custom logos and brand identity.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-video"></i></div>
+                <h3>Video Editing</h3>
+                <p>Professional video editing for all platforms.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-camera"></i></div>
+                <h3>Photo Editing</h3>
+                <p>Professional photo retouching.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-users"></i></div>
+                <h3>Content Strategy</h3>
+                <p>Data-driven content planning.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2 class="section-title">Our Real Story</h2>
+        
+        <div class="founder-card">
+            <div class="founder-header">
+                <div class="founder-avatar">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="founder-info">
+                    <h3>Yosef</h3>
+                    <p style="color: var(--primary-orange); font-size: 1.3rem;">Founder & Visionary</p>
+                    <p>🎓 20 years old | Student at Bahir Dar University</p>
+                </div>
+            </div>
+            
+            <p style="font-size: 1.1rem; line-height: 1.8;">
+                We're a brand new agency with zero completed projects – but don't let that fool you! 
+                What we lack in experience, we make up for with unlimited ambition, cutting-edge skills, 
+                and burning passion. Currently serving 5 amazing clients who believed in our vision.
+            </p>
+        </div>
+
+        <h3 style="text-align: center; margin: 4rem 0 2rem;">Meet The Team</h3>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-image"><i class="fas fa-paint-brush"></i></div>
+                <div class="team-info">
+                    <h4>Teddy</h4>
+                    <p>Graphics Designer & Script Writer</p>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image"><i class="fas fa-video"></i></div>
+                <div class="team-info">
+                    <h4>Minale</h4>
+                    <p>Video Editor</p>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image"><i class="fas fa-chart-pie"></i></div>
+                <div class="team-info">
+                    <h4>Branch</h4>
+                    <p>Marketer & Remote Advisor</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PORTFOLIO GALLERY WITH YOUR 15 IMAGES ===== -->
+    <section id="portfolio" class="portfolio">
+        <h2 class="section-title">Our Portfolio</h2>
+        <div class="gallery-container">
+            <button class="gallery-btn prev" onclick="moveGallery(-1)"><i class="fas fa-chevron-left"></i></button>
+            <div class="gallery-track" id="galleryTrack"></div>
+            <button class="gallery-btn next" onclick="moveGallery(1)"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="contact-container">
+            <div class="contact-info-card">
+                <h3>Get in Touch</h3>
+                <div class="contact-links">
+                    <a href="https://wa.me/251967523107" class="contact-link" target="_blank">
+                        <i class="fab fa-whatsapp"></i> +251 967 523 107
+                    </a>
+                    <a href="tel:+251967523107" class="contact-link">
+                        <i class="fas fa-phone"></i> +251 967 523 107
+                    </a>
+                    <a href="https://t.me/Yogodmarketingagency" class="contact-link" target="_blank">
+                        <i class="fab fa-telegram"></i> @Yogodmarketingagency
+                    </a>
+                    <a href="mailto:Yogodmarketingagency@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i> Yogodmarketingagency@gmail.com
+                    </a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3 style="margin-bottom: 2rem;">Send a Message</h3>
+                <form id="contactForm" onsubmit="event.preventDefault(); alert('Thank you! We\'ll respond within 24 hours.');">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="5" placeholder="Tell us about your project..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Yogod Marketing</h4>
+                <p>Fresh, ambitious, and ready to grow your brand. Based in Bahir Dar, Ethiopia.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p><i class="fas fa-phone"></i> +251 967 523 107</p>
+                <p><i class="fab fa-telegram"></i> @Yogodmarketingagency</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Yogod Marketing Agency. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT WITH YOUR 15 IMAGES ===== -->
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        // YOUR 15 PORTFOLIO IMAGES IN CORRECT ORDER
+        const galleryTrack = document.getElementById('galleryTrack');
+        let currentIndex = 0;
+
+        // Your 15 images from the images folder - EXACT ORDER from your screenshots
+        const yourImages = [
+            'images/portfolio-placeholder1.png',
+            'images/portfolio-placeholder2.png',
+            'images/portfolio-placeholder3.png',
+            'images/portfolio-placeholder4.png',
+            'images/portfolio-placeholder5.png',
+            'images/portfolio-placeholder6.png',
+            'images/portfolio-placeholder7.png',
+            'images/portfolio-placeholder8.png',
+            'images/portfolio-placeholder9.png',
+            'images/portfolio-placeholder10.png',
+            'images/portfolio-placeholder11.png',
+            'images/portfolio-placeholder12.png',
+            'images/portfolio-placeholder13.png',
+            'images/portfolio-placeholder14.png',
+            'images/portfolio-placeholder15.png'
+        ];
+
+        // Project titles for each image
+        const projectTitles = [
+            'Brand Identity Design',
+            'Social Media Campaign',
+            'Video Edit Project',
+            'Logo Design Concept',
+            'Photo Retouching',
+            'Ad Creative Design',
+            'Package Design',
+            'Content Creation',
+            'Influencer Campaign',
+            'Product Photography',
+            'TikTok Video Edit',
+            'Instagram Reel',
+            'Facebook Ad Design',
+            'YouTube Thumbnail',
+            'Brand Strategy'
+        ];
+
+        // Create gallery items
+        if (galleryTrack) {
+            yourImages.forEach((imagePath, index) => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
+                item.innerHTML = `
+                    <div class="gallery-image">
+                        <img src="${imagePath}" 
+                             alt="${projectTitles[index]}"
+                             onerror="this.onerror=null; this.src='https://via.placeholder.com/300x250/FF3366/ffffff?text=Image+${index+1}'">
+                    </div>
+                    <div class="gallery-overlay">
+                        <h3>${projectTitles[index]}</h3>
+                        <p>Project ${index + 1}/15</p>
+                    </div>
+                `;
+                galleryTrack.appendChild(item);
+            });
+        }
+
+        // Gallery navigation
+        window.moveGallery = function(direction) {
+            const items = document.querySelectorAll('.gallery-item');
+            if (items.length === 0) return;
+            
+            const itemWidth = 324;
+            const maxIndex = items.length - 3;
+            
+            currentIndex += direction;
+            
+            if (currentIndex < 0) currentIndex = maxIndex;
+            if (currentIndex > maxIndex) currentIndex = 0;
+            
+            if (galleryTrack) {
+                galleryTrack.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+            }
+        };
+
+        // Auto-play
+        setInterval(() => moveGallery(1), 4000);
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
